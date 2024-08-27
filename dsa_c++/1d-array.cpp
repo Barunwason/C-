@@ -57,43 +57,54 @@ int main()
             }
             else if (length >= 5)
             {
-                cout << "array is full. You can't insert anymore element";
+                cout << "aay is full. You can't insert anymore element";
             }
 
             choose_operation();
         }
         else if (choice == 3)
         {
-            //deleting
+            // deleting
             int index;
             cout << "Enter the index you want to insert element" << endl;
             cin >> index;
             if (index >= 0 && index <= length)
-                {
-                    if (index == length)
-                    {
-                        length--;
-                    }
-                    else
-                    {
-                        for (int i = index; i < length; i++)
-                        {
-                            a[i] = a[i + 1];
-                        }
-                        length--;
-                    }
-                }
-                else if (length <= 0)
             {
-                cout << "array is empty. You can't delete anymore element";
+                if (index == length)
+                {
+                    length--;
+                }
+                else
+                {
+                    for (int i = index; i < length; i++)
+                    {
+                        a[i] = a[i + 1];
+                    }
+                    length--;
+                }
+            }
+            else if (length <= 0)
+            {
+                cout << "aay is empty. You can't delete anymore element";
             }
             choose_operation();
-            }
-            
-        
+        }
+
         else if (choice == 4)
         {
-            //insertion sort
+            // insertion sort
+            for (int i = 1; i < length; i++)
+            {
+                int key = a[i];
+                int j = i - 1;
+
+                while (j >= 0 && a[j] > key)
+                {
+                    a[j + 1] = a[j];
+                    j = j - 1;
+                }
+                a[j + 1] = key;
+            }
             choose_operation();
         }
         else
@@ -101,4 +112,5 @@ int main()
             cout << "you have entered the wrong option" << endl;
             choose_operation();
         }
-    }}
+    }
+}
